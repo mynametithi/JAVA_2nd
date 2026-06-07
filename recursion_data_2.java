@@ -1,15 +1,27 @@
-//print 1to 5 number using recursive functon:
+//find the first and last occurance of a charecter in a string using recursion:
 public class recursion_data_2 {
-    public static void printNum(int n) {
-        if (n == 6) {
+    public static int first = -1;
+    public static int last = -1;
+
+    public static void findOccurance(String str, int idx, char element) {
+        if (idx == str.length()) {
+            System.out.println(first);
+            System.out.println(last);
             return;
         }
-        System.out.println(n);
-        printNum(n + 1);
+        char currChar = str.charAt(idx);
+        if (currChar == element) {
+            if (first == -1) {
+                first = idx;
+            } else {
+                last = idx;
+            }
+        }
+        findOccurance(str, idx + 1, element);
     }
 
     public static void main(String[] args) {
-        int n = 1;
-        printNum(n);// n=5
+        String str = "abaacdaefaah";
+        findOccurance(str, 0, 'a');
     }
 }
