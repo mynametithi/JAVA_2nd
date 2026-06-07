@@ -1,16 +1,17 @@
-//print sum of n natural number:
 public class recursion_data_3 {
-    public static void PrintSum(int i, int n, int sum) {
-        if (i == n) {
-            sum += i;
-            System.out.println(sum);
-            return;
+    public static boolean isSorted(int arr[], int index) {
+        if (index == arr.length - 1) {
+            return true;
         }
-        sum += i;
-        PrintSum(i + 1, n, sum);
+        if (arr[index] >= arr[index + 1]) {
+            return false;
+        }
+        return isSorted(arr, index + 1);
+
     }
 
     public static void main(String[] args) {
-        PrintSum(1, 5, 0);
+        int arr[] = { 1, 3, 5, 7, 9 };
+        System.out.println(isSorted(arr, 0));
     }
 }
